@@ -9,6 +9,7 @@ target 'Flixter' do
 
 	
 pod 'AFNetworking'
+pod "youtube-ios-player-helper", "~> 1.0.4"
 
   target 'FlixterTests' do
     inherit! :search_paths
