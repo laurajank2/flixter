@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 
 - [x] User can tap a poster in the collection view to see a detail screen of that movie
 - [x] User can search for a movie.
-- [ ] All images fade in as they are loading.
+- [x] All images fade in as they are loading.
 - [ ] User can view the large movie poster by tapping on a cell.
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
 - [ ] Customize the selection effect of the cell.
@@ -31,6 +31,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x] tap movie poster in detail view for a youtube video of the official trailer
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -41,7 +42,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-https://drive.google.com/file/d/1hxzDI1G-SFi7FL1iJOI_KiHm_stU0MIx/view?usp=sharing
+https://drive.google.com/file/d/1Z8YavngvR72kKmVxmeGeo_Tqc2kdCAm_/view?usp=sharing
 
 Anyone in meta should be able to open this link
 
