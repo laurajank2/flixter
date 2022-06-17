@@ -41,23 +41,32 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://drive.google.com/file/d/1vI6qs4youz06Rxup_NfijLkvqIdUy5Jl/view?usp=sharing
 
-GIF created with [Kap](https://getkap.co/).
+Anyone in meta should be able to open this link
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Displaying the movies was difficult until I found the Hint videos and they were very helpful!
+- Making the segue to the new detail was a bit tough
+- It was difficult to figure out how to test the loading state initially
+- generally coding in objective c. I'm not super familiar with the language and although I have gotten much better through this project, it's still tricky and I wish that I had a more comprehensive understanding.
+- Doing the spacing for both table view and collection view
+- getting keyboard to show up for search bar, but all I had to do was toggle something in the simulator and it worked
+
+
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- FLixter_assets
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Laura Jankowski]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
