@@ -81,11 +81,49 @@
 - (UICollectionViewCell *)collectionView: (UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     NSDictionary *movie = self.movies[indexPath.row];
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *baseURLStringLarge = @"https://image.tmdb.org/t/p/original";
+    NSString *baseURLStringSmall = @"https://image.tmdb.org/t/p/w45";
     NSString *posterURLString = movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    [cell.posterCollectionView setImageWithURL:posterURL];
+    NSString *fullPosterURLStringLarge = [baseURLStringLarge stringByAppendingString:posterURLString];
+    NSString *fullPosterURLStringSmall = [baseURLStringSmall stringByAppendingString:posterURLString];
+    NSURL *requestLarge = [NSURL URLWithString:fullPosterURLStringLarge];
+    NSURL *requestSmall = [NSURL URLWithString:fullPosterURLStringSmall];
+    NSURLRequest  *largeRequest = [NSURLRequest requestWithURL:requestLarge];
+    NSURLRequest  *smallRequest = [NSURLRequest requestWithURL:requestSmall];
+    __weak MovieCollectionCell *weakSelf = cell;
+
+    [cell.posterCollectionView setImageWithURLRequest:smallRequest
+                          placeholderImage:nil
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *smallImage) {
+                                       
+                                       // smallImageResponse will be nil if the smallImage is already available
+                                       // in cache (might want to do something smarter in that case).
+                                       weakSelf.posterCollectionView.alpha = 0.0;
+                                       weakSelf.posterCollectionView.image = smallImage;
+                                       
+                                       [UIView animateWithDuration:0.3
+                                                        animations:^{
+                                                            
+                                                            weakSelf.posterCollectionView.alpha = 1.0;
+                                                            
+                                                        } completion:^(BOOL finished) {
+                                                            // The AFNetworking ImageView Category only allows one request to be sent at a time
+                                                            // per ImageView. This code must be in the completion block.
+                                                            [weakSelf.posterCollectionView setImageWithURLRequest:largeRequest
+                                                                                  placeholderImage:smallImage
+                                                                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
+                                                                                                weakSelf.posterCollectionView.image = largeImage;
+                                                                                  }
+                                                                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                               // do something for the failure condition of the large image request
+                                                                                               // possibly setting the ImageView's image to a default image
+                                                                                           }];
+                                                        }];
+                                   }
+                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                       // do something for the failure condition
+                                       // possibly try to get the large image
+                                   }];
     return cell;
 }
 
