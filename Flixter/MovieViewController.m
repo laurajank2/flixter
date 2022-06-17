@@ -122,8 +122,8 @@
     MovieCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     //do cell for row at index path to get the dictionary
-    NSDictionary *movie = self.movies[indexPath.row];
-    NSDictionary *dataToPass = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
+    NSDictionary *dataToPass = self.filteredMovies[indexPath.row];
     DetailsViewController *detailVC = [segue destinationViewController];
     detailVC.detailDict = dataToPass;
 }
