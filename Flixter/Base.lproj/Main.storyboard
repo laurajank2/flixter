@@ -22,9 +22,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="k6R-2Q-gpM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="230" id="FFj-DR-Oqq" customClass="MovieCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="230"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FFj-DR-Oqq" id="45x-Vi-eoz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
@@ -40,14 +45,13 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">Leonard is an English tailor who used to craft suits on London\U2019s world-famous Savile Row. After a personal tragedy, he\U2019s ended up in Chicago, operating a small tailor shop in a rough part of town where he makes beautiful clothes for the only people around who can afford them: a family of vicious gangsters.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Morbuis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-b9-adp">
                                                     <rect key="frame" x="168" y="11" width="226" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="35"/>
-                                                    <color key="textColor" red="0.073423192984181096" green="0.09380201539999361" blue="0.5" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" systemColor="systemIndigoColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -68,20 +72,21 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Esb-bl-d49"/>
                     <navigationItem key="navigationItem" id="eyh-EF-94m"/>
                     <connections>
                         <outlet property="activityIndicator" destination="jOG-v5-ElY" id="PFd-zJ-VpD"/>
+                        <outlet property="movieSearchBar" destination="k6R-2Q-gpM" id="qqU-2y-uNS"/>
                         <outlet property="tableView" destination="7xJ-3A-HyC" id="MZ9-iv-RXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
+            <point key="canvasLocation" x="9" y="899"/>
         </scene>
-        <!--Grid View Controller-->
+        <!--Movies-->
         <scene sceneID="C3E-bM-A4i">
             <objects>
                 <viewController id="mSO-66-8wH" customClass="gridViewController" sceneMemberID="viewController">
@@ -118,6 +123,7 @@
                                         <size key="customSize" width="130" height="193"/>
                                         <connections>
                                             <outlet property="posterCollectionView" destination="oPc-mq-HqD" id="atL-wJ-Iie"/>
+                                            <segue destination="zRb-kj-mVR" kind="show" id="HVJ-SA-Qns"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -126,6 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="qzf-eH-hJg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Movies" id="1tW-uV-V3t"/>
                     <navigationItem key="navigationItem" id="W10-e3-bWS"/>
                     <connections>
                         <outlet property="collectionView" destination="78y-Z9-VlI" id="mm3-10-2D7"/>
@@ -133,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTc-SF-KmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3895.652173913044" y="97.767857142857139"/>
+            <point key="canvasLocation" x="2667" y="98"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="DiB-Gp-Zz9">
@@ -152,18 +159,22 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">Now that we are able to refresh new movies, we want our users to be able to view the details of each movie (i.e. full synopsis, release date, etc). They want to be able to tap on a movie and view it in detail. In this section, we will be doing just that.</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ7-n4-Z9C">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ7-n4-Z9C">
                                         <rect key="frame" x="0.0" y="-115" width="414" height="676"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="uhN-WC-EpK" appends="YES" id="df4-kr-MVU"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="sP0-P2-xvO">
                                         <rect key="frame" x="8" y="556" width="398" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="280"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -172,7 +183,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nRd-mG-qWU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="sSf-5t-LV9"/>
                     <connections>
@@ -182,8 +193,41 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ux-35-Q6N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uhN-WC-EpK">
+                    <connections>
+                        <segue destination="Wfi-WI-IBa" kind="show" id="vso-Ux-7I8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="929" y="806"/>
+            <point key="canvasLocation" x="2666.666666666667" y="919.41964285714278"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="Wm7-Xe-585">
+            <objects>
+                <viewController id="Wfi-WI-IBa" customClass="TrailerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rg6-B3-1UU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqX-5Z-yAm">
+                                <rect key="frame" x="208" y="149" width="42" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7XX-nS-LaR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LTx-YV-qPU"/>
+                    <connections>
+                        <outlet property="trailerLabel" destination="VqX-5Z-yAm" id="7Ox-mh-L61"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hK4-di-iPg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3742.0289855072465" y="914.73214285714278"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="7aE-ME-nSw">
@@ -215,34 +259,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Jea-hS-U3r" kind="relationship" relationship="viewControllers" id="ISb-bh-ZTu"/>
                         <segue destination="GQa-HO-Xcq" kind="relationship" relationship="viewControllers" id="G68-uG-zmb"/>
+                        <segue destination="mSO-66-8wH" kind="relationship" relationship="viewControllers" id="wfO-6A-YBa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jg-bz-ulp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1443" y="-723"/>
         </scene>
-        <!--Movies-->
-        <scene sceneID="DBk-eG-d97">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jea-hS-U3r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movies" id="KOi-LI-qzv"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aWC-sC-BSL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mSO-66-8wH" kind="relationship" relationship="rootViewController" id="QI4-eM-xvF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CE7-j7-SI3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2985.507246376812" y="97.767857142857139"/>
-        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g7E-Og-Zcx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -252,6 +280,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

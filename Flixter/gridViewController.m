@@ -8,6 +8,7 @@
 #import "gridViewController.h"
 #import "MovieCollectionCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface gridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -86,6 +87,19 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     [cell.posterCollectionView setImageWithURL:posterURL];
     return cell;
+}
+
+//In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //Get the new view controller using [segue destinationViewController].
+    //Pass the selected object to the new view controller.
+   MovieCollectionCell *cell = sender;
+   NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+   //do cell for row at index path to get the dictionary
+   NSDictionary *movie = self.movies[indexPath.row];
+   NSDictionary *dataToPass = self.movies[indexPath.row];
+   DetailsViewController *detailVC = [segue destinationViewController];
+   detailVC.detailDict = dataToPass;
 }
 
 /*
