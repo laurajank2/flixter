@@ -41,7 +41,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-https://drive.google.com/file/d/1vI6qs4youz06Rxup_NfijLkvqIdUy5Jl/view?usp=sharing
+https://drive.google.com/file/d/1hxzDI1G-SFi7FL1iJOI_KiHm_stU0MIx/view?usp=sharing
 
 Anyone in meta should be able to open this link
 
